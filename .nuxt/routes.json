@@ -1,0 +1,86 @@
+[
+  {
+    "name": "about",
+    "path": "/about",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/about/index.vue",
+    "chunkName": "pages/about/index",
+    "_name": "_7b5baa8b"
+  },
+  {
+    "name": "contact",
+    "path": "/contact",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/contact/index.vue",
+    "chunkName": "pages/contact/index",
+    "_name": "_4d545ac4"
+  },
+  {
+    "name": "news",
+    "path": "/news",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/news/index.vue",
+    "chunkName": "pages/news/index",
+    "_name": "_7760c9ab"
+  },
+  {
+    "name": "services",
+    "path": "/services",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/services/index.vue",
+    "chunkName": "pages/services/index",
+    "_name": "_559516f6"
+  },
+  {
+    "name": "works",
+    "path": "/works",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/works/index.vue",
+    "chunkName": "pages/works/index",
+    "_name": "_d3a41780"
+  },
+  {
+    "name": "news-detail",
+    "path": "/news/detail",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/news/detail/index.vue",
+    "chunkName": "pages/news/detail/index",
+    "_name": "_6bd06bcb"
+  },
+  {
+    "name": "works-detail-akairo",
+    "path": "/works/detail/akairo",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/works/detail/akairo.vue",
+    "chunkName": "pages/works/detail/akairo",
+    "_name": "_67b0da0a"
+  },
+  {
+    "name": "works-detail-kiiro",
+    "path": "/works/detail/kiiro",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/works/detail/kiiro.vue",
+    "chunkName": "pages/works/detail/kiiro",
+    "_name": "_2321720c"
+  },
+  {
+    "name": "works-detail-murasakiiro",
+    "path": "/works/detail/murasakiiro",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/works/detail/murasakiiro.vue",
+    "chunkName": "pages/works/detail/murasakiiro",
+    "_name": "_0e83fc47"
+  },
+  {
+    "name": "works-detail-orenjiiro",
+    "path": "/works/detail/orenjiiro",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/works/detail/orenjiiro.vue",
+    "chunkName": "pages/works/detail/orenjiiro",
+    "_name": "_23b724bf"
+  },
+  {
+    "name": "works-detail-pinkuiro",
+    "path": "/works/detail/pinkuiro",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/works/detail/pinkuiro.vue",
+    "chunkName": "pages/works/detail/pinkuiro",
+    "_name": "_af928e9a"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/kadowakitaichi/private-projects/nuxt-webweb/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_cb56b666"
+  }
+]

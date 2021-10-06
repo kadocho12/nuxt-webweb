@@ -1,0 +1,562 @@
+// ==========================================================================
+// font-size
+// ==========================================================================
+@mixin fontSize($size) {
+  font-size: $size + px;
+  font-size: ($size / 16) + rem;
+}
+
+// ==========================================================================
+// heading font
+// ==========================================================================
+@mixin headFont {
+  font-feature-settings: "palt" 1;
+
+  @media #{$screenSize_XS} {
+    font-family: $headSpFont;
+  }
+  @media #{$screenSize_S} {
+    font-family: $headFont;
+  }
+}
+
+@mixin engFont {
+  font-family: $engFont;
+  font-feature-settings: "palt" 1;
+}
+
+// ==========================================================================
+// ベースフォントで文字詰めを行わない標準フォントを表示する
+// ==========================================================================
+@mixin baseSentence {
+  text-justify: inter-ideograph; // IE
+  font-feature-settings: normal;
+  @media #{$screenSize_XS} {
+    font-family: $baseOriginSpFont; // Yakuhanを読み込まない
+  }
+  @media #{$screenSize_S} {
+    font-family: $baseOriginFont; // Yakuhanを読み込まない
+  }
+}
+
+// ==========================================================================
+// animation
+// ==========================================================================
+// スクロールでテキストアニメーション
+@mixin animation(
+  $name,
+  $duration: 1s,
+  $timing-function: ease,
+  $delay: 0s,
+  $iteration-count: 1,
+  $direction: normal,
+  $fill-mode: forwards
+) {
+  animation: {
+    name: $name;
+    duration: $duration;
+    timing-function: $timing-function;
+    delay: $delay;
+    iteration-count: $iteration-count;
+    direction: $direction;
+    fill-mode: $fill-mode;
+  }
+}
+
+// ==========================================================================
+// setNextSpace
+// ==========================================================================
+//上のコンテンツとの余白を設定する。
+@mixin setNextSpace {
+  .heading1 + & {
+    @media #{$screenSize_XS} {
+      margin-top: 56px;
+    }
+    @media #{$screenSize_S} {
+      margin-top: 64px;
+    }
+  }
+
+  .heading2 + & {
+    @media #{$screenSize_XS} {
+      margin-top: 40px;
+    }
+    @media #{$screenSize_S} {
+      margin-top: 48px;
+    }
+  }
+
+  .heading3 + & {
+    @media #{$screenSize_XS} {
+      margin-top: 32px;
+    }
+    @media #{$screenSize_S} {
+      margin-top: 40px;
+    }
+  }
+
+  .paragraph + &,
+  .list + &,
+  .table + &,
+  .image + & {
+    @media #{$screenSize_XS} {
+      margin-top: 21px;
+    }
+    @media #{$screenSize_S} {
+      margin-top: 24px;
+    }
+  }
+}
+
+// ==========================================================================
+// lineHeightCrop
+// ==========================================================================
+// 行高を削る。
+@mixin lineHeightCrop($line-height) {
+  &::before {
+    display: block;
+    margin-top: calc((1 - #{$line-height}) * .5em);
+    width: 0;
+    height: 0;
+    content: "";
+  }
+  &::after {
+    display: block;
+    margin-bottom: calc((1 - #{$line-height}) * .5em);
+    width: 0;
+    height: 0;
+    content: "";
+  }
+}
+// .p-edit-areaのimg要素に対して指定する。
+// 画像に対しては、行高削除が不要なため、行高を復活させる。
+@mixin lineHeightFixTop($line-height) {
+  padding-top: calc((-1 + #{$line-height}) * .5em);
+}
+@mixin lineHeightFixBottom($line-height) {
+  padding-bottom: calc((-1 + #{$line-height}) * .5em);
+}
+
+// ==========================================================================
+// icon
+// ==========================================================================
+
+//矢印（>）
+@mixin arrow($size, $width, $pos, $baseColor) {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  top: 50%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform cubic-bezier(.215, .61, .355, 1) .15s, border-color cubic-bezier(.215, .61, .355, 1) .15s;
+  border-style: solid;
+
+  border-color: $baseColor;
+  width: #{$size}px;
+  height: #{$size}px;
+  content: "";
+
+  @if $pos== "left" {
+    border-width: 0 0 $width + px $width + px;
+    transform: translate(0, -50%) rotate(45deg);
+  }
+  @else if $pos== "top" {
+    border-width: $width + px 0 0 $width + px;
+    transform: translate(0, -50%) rotate(45deg);
+  }
+  @else if $pos== "bottom" {
+    border-width: 0 $width + px $width + px 0;
+    transform: translate(0, -50%) rotate(45deg);
+  }
+  @else {
+    border-width: $width + px $width + px 0 0;
+    transform: translate(0, -50%) rotate(45deg);
+  }
+}
+
+//矢印（>　／　インライン）
+@mixin inlineArrow($size, $width, $pos, $baseColor) {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  top: -.2em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate(0, 0) rotate(45deg);
+  transition: transform cubic-bezier(.215, .61, .355, 1) .15s, border-color cubic-bezier(.215, .61, .355, 1) .15s;
+  border-style: solid;
+
+  border-color: $baseColor;
+  width: #{$size}px;
+  height: #{$size}px;
+  content: "";
+
+  @if $pos== "left" {
+    border-width: 0 0 $width + px $width + px;
+    margin-right: 4px;
+  }
+  @else if $pos== "top" {
+    border-width: $width + px 0 0 $width + px;
+    margin-left: 4px;
+  }
+  @else if $pos== "bottom" {
+    border-width: 0 $width + px $width + px 0;
+    margin-left: 4px;
+  }
+  @else {
+    border-width: $width + px $width + px 0 0;
+    margin-left: 4px;
+  }
+}
+
+//矢印（→）
+@mixin arrow2($direction, $color: $triangleColor, $color2: $hoverColor) {
+
+  &:hover,
+  a:hover & {
+    @media #{$screenSize_M} {
+      color: $color2;
+    }
+  }
+  span {
+    position: absolute;
+    transition: all .2s ease;
+
+    &:before {
+      position: absolute;
+      transition: all .2s ease;
+      border-style: solid;
+      content: "";
+    }
+
+    &:after {
+      position: absolute;
+      transition: all .2s ease;
+      background-color: $color;
+      content: "";
+    }
+  }
+
+  @if $direction== "right" or $direction== "left" {
+    span {
+      top: calc(50% - 2px);
+      height: 4px;
+
+      &:after {
+        bottom: 0;
+        left: 0;
+        height: 1px;
+
+        @media #{$screenSize_XS} {
+          width: 10px;
+        }
+
+        @media #{$screenSize_S} {
+          width: 16px;
+        }
+      }
+
+      .browser-is-ie & {
+        @media #{$screenSize_S} {
+          top: calc(36% - 2px);
+        }
+      }
+
+      @media #{$screenSize_XS} {
+        width: 14px;
+      }
+
+      @media #{$screenSize_S} {
+        width: 20px;
+      }
+    }
+  }
+
+  @if $direction== "top" or $direction== "bottom" {
+    span {
+      right: 0;
+      width: 4px;
+
+      &:after {
+        width: 1px;
+        height: 10px;
+      }
+
+      @media #{$screenSize_XS} {
+        top: calc(50% - 6px);
+        height: 14px;
+      }
+
+      @media #{$screenSize_S} {
+        top: calc(50% - 7px);
+        height: 15px;
+      }
+    }
+  }
+
+  @if $direction== "right" {
+    span {
+      &:before {
+        right: 0;
+        bottom: 0;
+        border-width: 4px 0 0 4px;
+        border-color: transparent transparent transparent $color;
+      }
+    }
+
+    &:hover,
+    a:hover & {
+      span {
+        &:before {
+          @media #{$screenSize_M} {
+            border-color: transparent transparent transparent $color2;
+          }
+        }
+        &:after {
+          @media #{$screenSize_M} {
+            background-color: $color2;
+          }
+        }
+
+        &:nth-of-type(1) {
+          @media #{$screenSize_M} {
+            transform: translateX(8px);
+          }
+        }
+      }
+    }
+  }
+
+  @if $direction== "left" {
+    span {
+      &:before {
+        bottom: 0;
+        left: 0;
+        border-width: 4px 4px 0 0;
+        border-color: transparent $color transparent transparent;
+      }
+      &:after {
+        right: 0;
+        left: auto;
+      }
+    }
+
+    &:hover,
+    a:hover & {
+      span {
+        &:before {
+          @media #{$screenSize_M} {
+            border-color: transparent $color2 transparent transparent;
+          }
+        }
+        &:after {
+          @media #{$screenSize_M} {
+            background-color: $color2;
+          }
+        }
+
+        &:nth-of-type(1) {
+          @media #{$screenSize_M} {
+            transform: translateX(-8px);
+          }
+        }
+      }
+    }
+  }
+
+  @if $direction== "bottom" {
+    span {
+      &:before {
+        right: 0;
+        bottom: 0;
+        border-width: 5px 3.5px 0 3.5px;
+        border-color: $color transparent transparent transparent;
+      }
+
+      &:nth-of-type(2) {
+        transform: translateY(-15px);
+      }
+    }
+
+    &:hover,
+    a:hover & {
+      span {
+        &:before {
+          @media #{$screenSize_M} {
+            border-color: $color2 transparent transparent transparent;
+          }
+        }
+        &:after {
+          @media #{$screenSize_M} {
+            background-color: $color2;
+          }
+        }
+
+        &:nth-of-type(1) {
+          @media #{$screenSize_M} {
+            transform: translateY(8px);
+          }
+        }
+      }
+    }
+  }
+
+  @if $direction== "top" {
+    span {
+      &:before {
+        top: 0;
+        right: 0;
+        border-width: 0 3.5px 5px 3.5px;
+        border-color: transparent transparent $color2 transparent;
+      }
+
+      &:after {
+        bottom: 0;
+        left: 0;
+      }
+
+      &:nth-of-type(2) {
+        transform: translateY(15px);
+      }
+    }
+
+    &:hover,
+    a:hover & {
+      span {
+        &:before {
+          @media #{$screenSize_M} {
+            border-color: transparent transparent $color2 transparent;
+          }
+        }
+        &:after {
+          @media #{$screenSize_M} {
+            background-color: $color2;
+          }
+        }
+
+        &:nth-of-type(1) {
+          @media #{$screenSize_M} {
+            transform: translateY(-8px);
+          }
+        }
+      }
+    }
+  }
+}
+
+//三角形
+@mixin triangle($width, $height, $pos, $color) {
+  display: block;
+
+  transition: transform cubic-bezier(.215, .61, .355, 1) .15s, border-color cubic-bezier(.215, .61, .355, 1) .15s;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  content: "";
+
+  @if $pos== "bottom" {
+    border-bottom: 0 + px transparent solid;
+    border-right: $width/2 + px transparent solid;
+    border-left: $width/2 + px transparent solid;
+    border-top: $height + px $color solid;
+  }
+
+  @if $pos== "top" {
+    border-top: 0 + px transparent solid;
+    border-right: $width/2 + px transparent solid;
+    border-left: $width/2 + px transparent solid;
+    border-bottom: $height + px $color solid;
+  }
+
+  @if $pos== "left" {
+    border-left: 0 + px transparent solid;
+    border-top: $height/2 + px transparent solid;
+    border-bottom: $height/2 + px transparent solid;
+    border-right: $width + px $color solid;
+  }
+
+  @if $pos== "right" {
+    border-right: 0 + px transparent solid;
+    border-top: $height/2 + px transparent solid;
+    border-bottom: $height/2 + px transparent solid;
+    border-left: $width + px $color solid;
+  }
+}
+
+//別窓
+@mixin blank($width, $height, $pos, $color, $top) {
+  &:after {
+    // background-color: $color;
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+    top: calc(#{$top} + 2px);
+    transition: transform cubic-bezier(.215, .61, .355, 1) .15s, border-color cubic-bezier(.215, .61, .355, 1) .15s;
+    width: $width - 2 + 0;
+    height: $height - 2 + 0;
+    content: "";
+    border: {
+      width: 1px;
+      color: $color;
+      style: solid;
+    }
+    #{$pos}: 0;
+
+    @if $pos== "right" {
+      margin-right: 2px;
+    }
+  }
+
+  &:before {
+
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+    top: $top;
+    transition: transform cubic-bezier(.215, .61, .355, 1) .15s, border-color cubic-bezier(.215, .61, .355, 1) .15s;
+    width: $width - 2 + 0;
+    height: $height - 2 + 0;
+    content: "";
+    border: {
+      width: 1px 1px 0 0;
+      color: $color;
+      style: solid;
+    }
+    #{$pos}: 0;
+
+    @if $pos== "left" {
+      margin-left: 2px;
+    }
+  }
+}
+
+//「＋」
+@mixin plus($size, $width, $baseColor) {
+  position: absolute;
+  top: calc(50% - #{$size}px / 2);
+  width: #{$size}px;
+  height: #{$size}px;
+
+  &:before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: calc(50% - #{$width}px/2);
+    background-color: $baseColor;
+    width: #{$width}px;
+    height: #{$size}px;
+    content: "";
+  }
+
+  &:after {
+    display: inline-block;
+    position: absolute;
+    top: calc(50% - #{$width}px/2);
+    left: 0;
+    background-color: $baseColor;
+    width: #{$size}px;
+    height: #{$width}px;
+    content: "";
+  }
+}

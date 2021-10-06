@@ -1,0 +1,122 @@
+.l-spacer {
+  /* 上下余白
+  ----------------------------------------------------------------- */
+  &.-large {
+    @media #{$screenSize_XS} {
+      padding: 48px 0;
+    }
+    @media #{$screenSize_S} {
+      padding: 64px 0;
+    }
+    @media #{$screenSize_M} {
+      padding: 128px 0;
+    }
+  }
+
+  &.-medium {
+    @media #{$screenSize_XS} {
+      padding: 32px 0;
+    }
+    @media #{$screenSize_S} {
+      padding: 64px 0;
+    }
+  }
+
+  &.-footerBody {
+    @media #{$screenSize_XS} {
+      padding: 32px 0;
+    }
+    @media #{$screenSize_S} {
+      padding: 56px 0;
+    }
+    @media #{$screenSize_M} {
+      padding: 80px 0;
+    }
+  }
+
+  // 見出し（セクション）の上余白
+  &.-h2 {
+
+    &:first-child {
+      margin-top: 0;
+    }
+    @media #{$screenSize_XS} {
+      margin-top: 50px;
+    }
+    @media #{$screenSize_S} {
+      margin-top: 80px;
+    }
+  }
+
+  &.-h3 {
+
+    &:first-child {
+      margin-top: 0;
+    }
+    @media #{$screenSize_XS} {
+      margin-top: 40px;
+    }
+    @media #{$screenSize_S} {
+      margin-top: 64px;
+    }
+  }
+
+  // padding-top
+  &.-pt0 {
+    padding-top: 0 !important;
+  }
+
+  // padding-bottom
+  &.-pb0 {
+    padding-bottom: 0 !important;
+  }
+
+  // margin-top
+  &.-mtMedium {
+    @media #{$screenSize_XS} {
+      margin-top: 24px;
+    }
+    @media #{$screenSize_S} {
+      margin-top: 32px;
+    }
+  }
+
+  /* 背景付き余白
+  ----------------------------------------------------------------- */
+  &.-gradient {
+    background-image: $gradation;
+  }
+
+  &.-pageTop {
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, .2);
+      content: "";
+    }
+  }
+
+  &.-aboutUs {
+    background-image: url("/assets/img/about/top@2x.jpg");
+  }
+
+  &.-news {
+    background-image: url("/assets/img/news/top@2x.jpg");
+  }
+
+  &.-services {
+    background-image: url("/assets/img/services/top@2x.jpg");
+  }
+
+  &.-works {
+    background-image: url("/assets/img/works/top@2x.jpg");
+  }
+}

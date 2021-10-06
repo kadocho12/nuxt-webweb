@@ -1,0 +1,77 @@
+{
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "ButtonComponent": {
+    "description": "Auto imported from components/Atoms/ButtonComponent.vue"
+  },
+  "Hamburger": {
+    "description": "Auto imported from components/Atoms/Hamburger.vue"
+  },
+  "Heading1": {
+    "description": "Auto imported from components/Atoms/Heading1.vue"
+  },
+  "Heading2": {
+    "description": "Auto imported from components/Atoms/Heading2.vue"
+  },
+  "Heading3": {
+    "description": "Auto imported from components/Atoms/Heading3.vue"
+  },
+  "ImageComponent": {
+    "description": "Auto imported from components/Atoms/ImageComponent.vue"
+  },
+  "PageTop": {
+    "description": "Auto imported from components/Atoms/PageTop.vue"
+  },
+  "Paragraph": {
+    "description": "Auto imported from components/Atoms/Paragraph.vue"
+  },
+  "Breadcrumbs": {
+    "description": "Auto imported from components/Molecules/Breadcrumbs.vue"
+  },
+  "Card": {
+    "description": "Auto imported from components/Molecules/Card.vue"
+  },
+  "ContentsHeading": {
+    "description": "Auto imported from components/Molecules/ContentsHeading.vue"
+  },
+  "InputMail": {
+    "description": "Auto imported from components/Molecules/InputMail.vue"
+  },
+  "InputName": {
+    "description": "Auto imported from components/Molecules/InputName.vue"
+  },
+  "InputNameKana": {
+    "description": "Auto imported from components/Molecules/InputNameKana.vue"
+  },
+  "InputText": {
+    "description": "Auto imported from components/Molecules/InputText.vue"
+  },
+  "NewsList": {
+    "description": "Auto imported from components/Molecules/NewsList.vue"
+  },
+  "PageHeading": {
+    "description": "Auto imported from components/Molecules/PageHeading.vue"
+  },
+  "SelectContactCategory": {
+    "description": "Auto imported from components/Molecules/SelectContactCategory.vue"
+  },
+  "ServiceBlock": {
+    "description": "Auto imported from components/Molecules/ServiceBlock.vue"
+  },
+  "Slider": {
+    "description": "Auto imported from components/Molecules/Slider.vue"
+  },
+  "Contact": {
+    "description": "Auto imported from components/Organisms/Contact.vue"
+  },
+  "ContactForm": {
+    "description": "Auto imported from components/Organisms/ContactForm.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/Organisms/Footer.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Organisms/Header.vue"
+  }
+}

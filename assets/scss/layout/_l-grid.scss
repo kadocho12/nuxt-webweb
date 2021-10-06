@@ -1,0 +1,193 @@
+.l-grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  &.-start {
+    justify-content: start;
+  }
+
+  &.-center {
+    justify-content: center;
+  }
+
+  &.-end {
+    justify-content: end;
+  }
+
+  &.-justify {
+    justify-content: space-between;
+  }
+
+  &.-top {
+    align-items: flex-start;
+  }
+
+  &.-middle {
+    align-items: center;
+  }
+
+  &.-baseline {
+    align-items: baseline;
+  }
+
+  &.-bottom {
+    align-items: flex-end;
+  }
+
+  @media #{$screenSize_XS} {
+    &.-spColumn {
+      flex-direction: column;
+    }
+  }
+  @media #{$screenSize_S} {
+    &.-tabRow {
+      flex-direction: row;
+    }
+  }
+  @media #{$screenSize_M} {
+    &.-lapRow {
+      flex-direction: row;
+    }
+  }
+}
+
+.l-grid__item {
+  // .l-grid__itemの配置
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  &.-right {
+    flex: 1 1 auto;
+  }
+
+  &.-middle {
+    align-items: center;
+  }
+
+  &.-row {
+    flex-direction: row;
+  }
+
+  // .l-grid__itemの横幅
+  // i = 12 / 横並びにしたい要素数
+  @for $i from 1 through 12 {
+    &.-sp#{$i}Of12 {
+      @media #{$screenSize_XS} {
+        width: calc(#{$i} / 12 * 100%);
+      }
+    }
+
+    &.-tab#{$i}Of12 {
+      @media #{$screenSize_S} {
+        width: calc(#{$i} / 12 * 100%);
+      }
+    }
+
+    &.-lap#{$i}Of12 {
+      @media #{$screenSize_M} {
+        width: calc(#{$i} / 12 * 100%);
+      }
+    }
+
+    &.-desk#{$i}Of12 {
+      @media #{$screenSize_L} {
+        width: calc(#{$i} / 12 * 100%);
+      }
+    }
+
+    .browser-is-ie & {
+      &.-tab4Of12 {
+        @media #{$screenSize_S} {
+          width: 33.3%;
+        }
+      }
+    }
+  }
+
+  &.-lapAuto {
+    @media #{$screenSize_M} {
+      width: auto;
+    }
+  }
+}
+
+.l-grid.-gutter {
+  width: auto;
+
+  & .l-grid__item {
+    // background-clip: padding-box;
+    border: {
+      style: solid;
+      color: transparent;
+    }
+
+    @media #{$screenSize_XS} {
+      border-width: 8px;
+    }
+    @media #{$screenSize_S} {
+      border-width: 8px;
+    }
+    @media #{$screenSize_M} {
+      border-width: 12px;
+    }
+    @media #{$screenSize_L} {
+      border-width: 16px;
+    }
+  }
+
+  @media #{$screenSize_XS} {
+    margin: -8px;
+  }
+  @media #{$screenSize_S} {
+    margin: -8px;
+  }
+  @media #{$screenSize_M} {
+    margin: -12px;
+  }
+  @media #{$screenSize_L} {
+    margin: -16px;
+  }
+}
+
+.l-grid.-gutter.-large {
+
+  & > .l-grid__item {
+    @media #{$screenSize_XS} {
+      border-width: 8px;
+    }
+    @media #{$screenSize_S} {
+      border-width: 12px;
+    }
+    @media #{$screenSize_M} {
+      border-width: 16px;
+    }
+    @media #{$screenSize_L} {
+      border-width: 24px;
+    }
+  }
+  @media #{$screenSize_XS} {
+    margin: -8px;
+  }
+  @media #{$screenSize_S} {
+    margin: -12px;
+  }
+  @media #{$screenSize_M} {
+    margin: -16px;
+  }
+  @media #{$screenSize_L} {
+    margin: -24px;
+  }
+}
+
+.l-grid.-gutter.-small {
+  margin: -4px;
+
+  & > .l-grid__item {
+    border-width: 4px;
+  }
+}
+
+.l-grid {
+  @include setNextSpace;
+}

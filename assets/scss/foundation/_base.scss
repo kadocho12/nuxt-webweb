@@ -1,0 +1,167 @@
+/* Base
+----------------------------------------------------------------- */
+html {
+  height: 100%;
+  line-height: 1.6;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  @include baseSentence;
+  position: relative;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: $textColor;
+  @media #{$screenSize_S} {
+    // font-family: $baseFont;
+    line-height: 1.5;
+  }
+  @media #{$screenSize_XS} {
+    // font-family: $baseSpFont;
+    line-height: 1.5;
+  }
+}
+
+a {
+  transition: color .4s 0s ease;
+  text-decoration: none;
+  &:hover {
+    @media #{$screenSize_M} {
+      color: $mainColor;
+    }
+  }
+  &[href^="tel"] {
+    @media #{$screenSize_M} {
+      cursor: text;
+      pointer-events: none;
+    }
+  }
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.4;
+  font-weight: normal;
+}
+
+address {
+  font-style: normal;
+}
+wbr:after {
+  .browser-is-ie & {
+    content: "\00200B";
+  }
+}
+
+.preload * {
+  transition: all 0s !important;
+}
+
+button {
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: $textColor;
+  @media #{$screenSize_S} {
+    line-height: 1.75;
+    font-family: $baseFont;
+  }
+  @media #{$screenSize_XS} {
+    line-height: 1.75;
+    font-family: $baseSpFont;
+  }
+}
+
+a {
+  color: #333;
+  transition: color .4s ease 0s;
+
+  &:hover {
+    color: #185bb2;
+  }
+}
+
+.u-visuallyHidden {
+  clip: rect(0 0 0 0);
+  position: absolute;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.u-show-XS {
+  display: none;
+  @media #{$screenSize_XS} {
+    display: block;
+  }
+}
+
+.u-show-S {
+  display: none;
+  @media #{$screenSize_S} {
+    display: block;
+  }
+}
+
+.u-show-underM {
+  display: none;
+  @media #{$screenSize_underM} {
+    display: block;
+  }
+}
+
+.u-show-M {
+  display: none;
+  @media #{$screenSize_M} {
+    display: block;
+  }
+}
+
+.u-show-L {
+  display: none;
+  @media #{$screenSize_L} {
+    display: block;
+  }
+}
+
+.u-show-XL {
+  display: none;
+  @media #{$screenSize_XL} {
+    display: block;
+  }
+}
+
+.u-show-full {
+  display: none;
+  @media #{$screenSize_FULL} {
+    display: block;
+  }
+}
+
+.u-no-break {
+  display: inline-block;
+}
